@@ -17,6 +17,7 @@ import java.sql.Statement;
 public abstract class DataHelper {
     private static String DBPathConnection = null;
     private static Connection conn = null;
+
     public DataHelper(String  dbPathConnection){
         // Definir la cadena de conneccion : jdbc:sqlite:data\\TinderPet.db
         if (!dbPathConnection.isEmpty())
@@ -52,15 +53,11 @@ public abstract class DataHelper {
         Connection conn = null;
         Statement  stmt = null;
         ResultSet  rs   = null;
-       // try {
-            conn = getConnection();            // jdbc:sqlite:data\\TinderPet.db 
-            stmt = conn.createStatement();     // CRUD : select * ...
-            rs   = stmt.executeQuery(sql);     //
-        // } 
-        // catch (SQLException e) {
-        //     System.out.println(e.getMessage());
-        //     throw new AppException(APP.GLOBAL.DB_EXCEPTION,"Failed to connect to database", e);
-        // }
+        
+        conn = getConnection();            
+        stmt = conn.createStatement();     
+        rs   = stmt.executeQuery(sql);     
+
         return rs;
     }
 }

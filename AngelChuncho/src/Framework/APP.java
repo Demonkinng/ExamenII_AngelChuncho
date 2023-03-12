@@ -17,8 +17,16 @@ public enum APP {
     public final String ACNUMERO_CEDULA     = "0705977866";
 
     public final  String  KEY_DB_FULLPATH   = "DB_FULLPATH";
-    public final  int  METHOD_OK            = 200;
-    public final  int  METHOD_ERROR         = 400;
+    public final  int     METHOD_OK         = 200;
+    public final  int     METHOD_ERROR      = 400;
+
+    // Constantes para invocar a las tablas de la base de datos
+    public final String ACTABLA_USUARIO = "AC_USUARIO";
+
+    // Constantes de la tabla AC_USUARIO de la base de datos
+    public final String PK_ACID_USUARIO = "PK_ACID_USUARIO";
+    public final String ACCORREO = "ACCORREO";
+    public final String ACCONTRASENA = "ACCONTRASENA";
 
     //Constantes por definir en el contructor
     private final String  CONFIG_PATH;
