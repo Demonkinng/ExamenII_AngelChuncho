@@ -154,7 +154,8 @@ public class ILogin extends JFrame {
                             iAdmin.setVisible(true);
                             dispose();
                     } else {
-                        JOptionPane.showMessageDialog(null, "El usuario " + acTxtUsuario.getText()+ " no se encuentra en la base de datos.");
+                        JOptionPane.showMessageDialog(null, "El usuario " + acTxtUsuario.getText()+ " no se encuentra en la base de datos."
+                                                      +"Intentos restantes: " +(3-acIntentosLogin));
                     }
                 } catch (Exception e1) {
                     JOptionPane.showMessageDialog(null, "Error al loguearse");
