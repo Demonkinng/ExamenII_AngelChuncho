@@ -140,7 +140,7 @@ public class ILogin extends JFrame {
                     EncriptarContrasena acEncriptar = new EncriptarContrasena();
                     String acTexto = acTxtContrasena.getText();
                     String acTextoEncriptado = acEncriptar.acEncriptar(acTexto);
-                    Usuario acNuevoUsuario = acUser.acGetUserLogin(acTxtUsuario.getText().trim(), acTextoEncriptado);
+                    Usuario acNuevoUsuario = acUser.acGetUsuarioLogin(acTxtUsuario.getText().trim(), acTextoEncriptado);
                     if (acNuevoUsuario != null) {
                             Ventana iAdmin = new Ventana();
                             iAdmin.setVisible(true);

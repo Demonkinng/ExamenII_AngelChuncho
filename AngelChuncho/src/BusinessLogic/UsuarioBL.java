@@ -17,10 +17,10 @@ public class UsuarioBL {
      * @return Encuentra al usuario en la BD y retorna el mismo si es valido
      * @throws Exception
      */
-    public Usuario acGetUserLogin(String acEmail, String acConstrasena) throws Exception {
+    public Usuario acGetUsuarioLogin(String acEmail, String acConstrasena) throws Exception {
         try {
             UsuarioDAC userDAC = new UsuarioDAC();
-            ResultSet rs = userDAC.getUsuario();
+            ResultSet rs = userDAC.acGetUsuario();
             while (rs.next()) {
                 Usuario u = new Usuario(rs.getString(APP.GLOBAL.ACCORREO)
                                         , rs.getString(APP.GLOBAL.ACCONTRASENA));

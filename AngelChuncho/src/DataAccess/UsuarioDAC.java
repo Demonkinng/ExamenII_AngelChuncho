@@ -24,7 +24,7 @@ public class UsuarioDAC extends DataHelper{
      * @return Retorna el resultado de la consulta sql
      * @throws AppException
      */
-    public ResultSet getUsuario() throws AppException{
+    public ResultSet acGetUsuario() throws AppException{
         try {
             String sql = "SELECT " + APP.GLOBAL.ACCORREO + ", "
                                    + APP.GLOBAL.ACCONTRASENA

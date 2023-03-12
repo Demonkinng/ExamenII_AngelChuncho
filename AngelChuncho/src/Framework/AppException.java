@@ -1,5 +1,8 @@
 package Framework;
 
+/**
+ * Clase con excepciones personalizadas
+ */
 public class AppException extends Exception  {
 
     public AppException(Throwable cause, Object className, String message) {
