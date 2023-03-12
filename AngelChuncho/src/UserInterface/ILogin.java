@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
@@ -24,7 +25,8 @@ import Framework.EncriptarContrasena;
 public class ILogin extends JFrame {
     private JPanel acPanelPrincipal = new JPanel();
     private static JTextField acTxtUsuario;
-    private static  JTextField acTxtContrasena;
+    private static  JPasswordField acTxtContrasena;
+    int acIntentosLogin = 0;
 
 
     public static void main(String[] args) throws Exception {
@@ -107,7 +109,7 @@ public class ILogin extends JFrame {
         acLblContrasena.setFont(new Font("Berlin Sans FB", Font.BOLD, 16));
         acPanelCentralCentro.add(acLblContrasena);
 
-        acTxtContrasena = new JTextField();
+        acTxtContrasena = new JPasswordField();
         acTxtContrasena.setColumns(10);
         acPanelCentralCentro.add(acTxtContrasena);
 
@@ -136,9 +138,15 @@ public class ILogin extends JFrame {
         acBtnLogin.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
+                    acIntentosLogin++;
+                    if (acIntentosLogin > 2) {
+                        JOptionPane.showMessageDialog(null, "Se alcanzó el límite de intentos permitidos. El programa se cerrará.");
+                        System.exit(0);
+                    }
+
                     UsuarioBL acUser = new UsuarioBL();
                     EncriptarContrasena acEncriptar = new EncriptarContrasena();
-                    String acTexto = acTxtContrasena.getText();
+                    String acTexto = new String(acTxtContrasena.getPassword());
                     String acTextoEncriptado = acEncriptar.acEncriptar(acTexto);
                     Usuario acNuevoUsuario = acUser.acGetUsuarioLogin(acTxtUsuario.getText().trim(), acTextoEncriptado);
                     if (acNuevoUsuario != null) {
