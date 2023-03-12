@@ -15,18 +15,28 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import Framework.EncriptarContrasena;
+
 public class Login extends JFrame {
     private JPanel acPanelPrincipal = new JPanel();
     //private JPanel acPanelFondo = new JPanel();
-    private JTextField acTxtUsuario;
-    private JPasswordField acTpfContrasena;
+    private static JTextField acTxtUsuario;
+    private static  JPasswordField acTpfContrasena;
     //JComboBox cbxRol;
 
     public static void main(String[] args) throws Exception {
         Login acFrameInicio = new Login();
         acFrameInicio.setVisible(true);
+        EncriptarContrasena encriptar = new EncriptarContrasena();
+        //String texto = acTpfContrasena.getText;
+        //String texto = "0705977823";
+        String textoEncriptado = encriptar.acEncriptar(texto);
+        String textoDesencriptado = encriptar.acDesencriptar(textoEncriptado);
+        System.out.println("Texto desencriptado: " + textoDesencriptado);
+        System.out.println("Texto encriptado: " + textoEncriptado);
+        System.out.println("Texto original: " + texto);
     }
-
+    
     public Login(){
         /*
          * Se crean los paneles necesarios para organizar los componentes del formulario
@@ -38,17 +48,8 @@ public class Login extends JFrame {
         setBounds(0, 0, 800, 500);
         setResizable(false);
         setLocationRelativeTo(null);
-        // ImageIcon acFondoLogin = new ImageIcon("images/img_fondoMilitar.jpg");
-        // JLabel acLblFondoLogin = new JLabel(acFondoLogin);
-        // acLblFondoLogin.setBounds(0, 0, 800, 500);
-        // acPanelFondo.add(acLblFondoLogin);
-
-        //acPanelPrincipal.setLayout(new BorderLayout(0, 0));
-        
         setContentPane(acPanelPrincipal);
-        // add(acPanelPrincipal);
-        // acPanelFondo.setLayout(null);
-        //acPanelPrincipal.setLayout(null);
+
         acPanelPrincipal.setLayout(new BorderLayout(0, 0));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -72,13 +73,14 @@ public class Login extends JFrame {
 
         //TODO AQUI YA NO HAY PANELES
 
-        JLabel acLblTitulo = new JLabel("FORMULARIO DE LOGIN");
-        acLblTitulo.setFont(new Font("Javanese Text", Font.BOLD | Font.ITALIC, 25));
+        JLabel acLblTitulo = new JLabel("FUERZAS ESPECIALES RUSAS");
+        acLblTitulo.setFont(new Font("Berlin Sans FB", Font.BOLD | Font.ITALIC, 25));
         acLblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
         acPanelSuperior.add(acLblTitulo);
 
-        ImageIcon acFondoLogin = new ImageIcon("images/img_fondoMilitar.jpg");
-        JLabel acLblFondoLogin = new JLabel("acFondoLoginacFondoLoginacFondoLoginacFondoLogin");
+        //ImageIcon acFondoLogin = new ImageIcon("images/img_fondoMilitar.jpg");
+        JLabel acLblFondoLogin = new JLabel();
+        acLblFondoLogin.setIcon(new ImageIcon("images/img_soldado.jpg"));
         acLblFondoLogin.setBounds(0, 0, 0, 0);
         acPanelIzquierdo.add(acLblFondoLogin);
 
@@ -96,10 +98,11 @@ public class Login extends JFrame {
         acPanelCentralCentro.add(acLblAyudante2);
 
         JLabel acLblUsuario = new JLabel("Usuario :");
-        acLblIngreseDatos.setFont(new Font("Berlin Sans FB", Font.BOLD, 13));
+        acLblUsuario.setFont(new Font("Berlin Sans FB", Font.BOLD, 16));
         acPanelCentralCentro.add(acLblUsuario);
 
-        JTextField acTxtUsuario = new JTextField("Usuario :");
+        //TODO txtusuario
+        acTxtUsuario = new JTextField();
         acTxtUsuario.setColumns(10);
         acPanelCentralCentro.add(acTxtUsuario);
 
@@ -110,10 +113,10 @@ public class Login extends JFrame {
         acPanelCentralCentro.add(acLblAyudante4);
 
         JLabel acLblContrasena = new JLabel("Contraseña :");
-        acLblIngreseDatos.setFont(new Font("Berlin Sans FB", Font.BOLD, 13));
+        acLblContrasena.setFont(new Font("Berlin Sans FB", Font.BOLD, 16));
         acPanelCentralCentro.add(acLblContrasena);
 
-        JTextField acTxtContrasena = new JTextField("");
+        JTextField acTxtContrasena = new JTextField();
         acTxtUsuario.setColumns(10);
         acPanelCentralCentro.add(acTxtContrasena);
 
@@ -139,6 +142,12 @@ public class Login extends JFrame {
         acBtnLogin.setFont(new Font("Berlin Sans FB Demi", Font.BOLD, 13));
         acBtnLogin.setHorizontalAlignment(SwingConstants.CENTER);
         acPanelCentralCentro.add(acBtnLogin);
+
+        JLabel acLblAyudante7 = new JLabel("            ");
+        acPanelCentralCentro.add(acLblAyudante7);
+        
+        JLabel acLblAyudante8 = new JLabel("            ");
+        acPanelCentralCentro.add(acLblAyudante8);
         //panelSuperior.add(lbTittle);
 
 
